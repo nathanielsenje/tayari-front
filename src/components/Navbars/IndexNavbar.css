@@ -1,11 +1,24 @@
 .navbar {
-    background-color: #111111d4 !important;
+    background-color: #000000 !important;
     transition: all 0.3s ease;
 }
 
-.navbar-brand,
-.nav-link {
+.navbar-transparent {
+    background-color: transparent !important;
+}
+
+.navbar-transparent .navbar-brand,
+.navbar-transparent .nav-link {
     color: #ffffff !important;
+}
+
+.navbar-white {
+    background-color: #ffffff !important;
+}
+
+.navbar-white .navbar-brand,
+.navbar-white .nav-link {
+    color: #333333 !important;
 }
 
 .nav-link:hover,
@@ -14,35 +27,31 @@
     color: #2CA8FF !important;
 }
 
-.navbar-toggler-bar {
-    background: #ffffff !important;
-}
-
-.navbar-white {
-    background-color: #ffffff !important;
-}
-
 .navbar-shadow {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-mobile .nav-link {
-    color: #4a4a4a !important;
-}
-
-.navbar-mobile .nav-link:hover,
-.navbar-mobile .nav-link:focus,
-.navbar-mobile .nav-link.active {
-    color: #007bff !important;
-}
-
-.navbar-toggler-bar {
-    background-color: #4a4a4a !important;
 }
 
 #navbar-brand img {
     height: 30px;
     width: auto;
+}
+
+.navbar-black {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-mobile .hamburger-menu {
+    display: none;
+}
+
+.navbar-mobile .hamburger-menu-right {
+    display: block;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 @media screen and (max-width: 991px) {
@@ -55,7 +64,7 @@
         right: 0;
         z-index: 1032;
         visibility: visible;
-        background-color: #999;
+        background-color: #000000;
         overflow-y: visible;
         border-top: none;
         text-align: left;
@@ -91,7 +100,8 @@
         width: 22px;
         height: 1px;
         border-radius: 1px;
-        background-color: #4a4a4a !important;
+        background-color: #ffffff;
+        transition: all 0.2s;
     }
 
     .navbar-toggler-bar + .navbar-toggler-bar {
@@ -110,5 +120,21 @@
     .navbar-toggler[aria-expanded="true"] .navbar-toggler-bar:nth-child(3) {
         transform: rotate(-45deg);
         transform-origin: 10% 90%;
+    }
+
+    .navbar-nav {
+        padding-top: 10px;
+    }
+
+    .nav-link {
+        padding: 10px 0 !important;
+    }
+
+    .navbar-toggler {
+        border: none;
+    }
+
+    .navbar-toggler:focus {
+        outline: none;
     }
 }

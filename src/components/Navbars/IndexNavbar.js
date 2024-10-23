@@ -8,21 +8,21 @@ import {
   NavItem,
   Nav,
   Container,
+  Button
 } from "reactstrap";
 import "./IndexNavbar.css";
 import logo from "../../assets/img/linear-dark.png"; // Make sure this path is correct
 
 function IndexNavbar() {
   const [collapseOpen, setCollapseOpen] = useState(false);
-  const [navbarColor, setNavbarColor] = useState("navbar-white");
-  const [color, setColor] = useState("navbar-transparent");
+  const [navbarColor, setNavbarColor] = useState("navbar-transparent");
 
   useEffect(() => {
     const updateNavbarColor = () => {
       if (document.documentElement.scrollTop > 399 || document.body.scrollTop > 399) {
         setNavbarColor("navbar-white navbar-shadow");
       } else if (document.documentElement.scrollTop < 400 || document.body.scrollTop < 400) {
-        setNavbarColor("navbar-white");
+        setNavbarColor("navbar-transparent");
       }
     };
     window.addEventListener("scroll", updateNavbarColor);
@@ -32,7 +32,7 @@ function IndexNavbar() {
   }, []);
 
   return (
-    <Navbar className={`fixed-top ${navbarColor}`} expand="lg" color={color}>
+    <Navbar className={`fixed-top ${navbarColor}`} expand="lg">
       <Container>
         <div className="navbar-translate">
           <NavbarBrand to="/" tag={Link} id="navbar-brand">
@@ -75,9 +75,20 @@ function IndexNavbar() {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to="/" className="nav-link" onClick={() => setCollapseOpen(false)}>
-                Get Started
+              <NavLink to="/login-page" className="nav-link" onClick={() => setCollapseOpen(false)}>
+                Login
               </NavLink>
+            </NavItem>
+            <NavItem>
+              <Button
+                className="nav-link btn-round"
+                color="info"
+                tag={Link}
+                to="/get-started"
+                onClick={() => setCollapseOpen(false)}
+              >
+                Get Started
+              </Button>
             </NavItem>
           </Nav>
         </Collapse>

@@ -2,6 +2,7 @@ import React from "react";
 
 // core components
 import IndexHeader from "components/Headers/IndexHeader.js";
+import DarkFooter from "components/Footers/DarkFooter.js";
 
 function Index() {
   React.useEffect(() => {
@@ -22,7 +23,7 @@ function Index() {
         <div className="main">
           {/* Your main content here */}
         </div>
-
+        <DarkFooter />
       </div>
     </>
   );

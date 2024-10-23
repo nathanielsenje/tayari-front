@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 // reactstrap components
 import {
@@ -13,7 +14,8 @@ import {
   InputGroupText,
   InputGroup,
   Container,
-  Col
+  Col,
+  Row
 } from "reactstrap";
 
 // core components
@@ -34,6 +36,7 @@ function LoginPage() {
       document.body.classList.remove("sidebar-collapse");
     };
   }, []);
+
   return (
     <>
       <ExamplesNavbar />
@@ -41,7 +44,8 @@ function LoginPage() {
         <div
           className="page-header-image"
           style={{
-            backgroundImage: "url(" + require("assets/img/login.jpg") + ")"
+            backgroundImage:
+              "url('https://source.unsplash.com/random/1600x900?medical')"
           }}
         ></div>
         <div className="content">

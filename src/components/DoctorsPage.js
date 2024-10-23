@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Card, CardBody, CardTitle, CardSubtitle, CardText, Button, Input, Badge, InputGroup, InputGroupAddon, InputGroupText } from "reactstrap";
-import { Star, Search } from 'react-feather';
+import { Star, User, Calendar, Search } from 'react-feather';
 import { Link, useNavigate } from 'react-router-dom';
 import './DoctorsPage.css'; // Make sure to create this CSS file
 
@@ -111,18 +111,18 @@ function DoctorCard({ doctor }) {
                         className="btn-round"
                         color="info"
                         onClick={handleBooking}
-                        block
+                        size="sm"
                     >
-                        Book Appointment
+                        <Calendar size={14} /> Book Appointment
                     </Button>
                     <Button
                         className="btn-round"
                         color="primary"
                         tag={Link}
                         to={`/doctor/${doctor.id}`}
-                        block
+                        size="sm"
                     >
-                        View Profile
+                        <User size={14} /> View Profile
                     </Button>
                 </div>
             </CardBody>

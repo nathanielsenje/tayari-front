@@ -7,7 +7,7 @@ const user = {
     email: "emma.wilson@example.com",
     joinDate: "January 15, 2023",
     bio: "Mother of two, passionate about mental health and wellness.",
-    avatarUrl: require("assets/img/user-avatar.jpg"),
+    avatarUrl: "https://via.placeholder.com/150", // Placeholder image
 };
 
 function UserProfilePage() {
@@ -26,7 +26,7 @@ function UserProfilePage() {
                     <Col md="6" className="ml-auto mr-auto">
                         <div className="profile-tabs">
                             <h5>Email: {user.email}</h5>
-                            <Button color="info" className="btn-round" fullWidth>
+                            <Button color="info" className="btn-round" block>
                                 Edit Profile
                             </Button>
                         </div>

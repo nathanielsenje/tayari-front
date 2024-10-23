@@ -42,17 +42,32 @@
 
 .button-container {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    justify-content: space-between;
     margin-top: 15px;
 }
 
 .button-container .btn {
-    width: 100%;
-    text-transform: uppercase;
-    font-size: 0.8em;
-    font-weight: 600;
-    padding: 12px 20px;
+    flex: 1;
+    margin: 0 5px;
+}
+
+.search-container {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto 30px;
+}
+
+.search-container input {
+    padding-right: 40px; /* Add space for the icon */
+}
+
+.search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+    pointer-events: none;
 }
 
 .doctor-card {
