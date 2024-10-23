@@ -1,0 +1,53 @@
+.footer {
+  padding: 50px 0;
+  color: #fff;
+}
+
+.footer h5 {
+  color: #fff;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.footer-links,
+.footer-social {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-links li,
+.footer-social li {
+  margin-bottom: 10px;
+}
+
+.footer-links a,
+.footer-social a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover,
+.footer-social a:hover {
+  color: #1da1f2;  /* You can change this to your brand color */
+}
+
+.footer-social i {
+  margin-right: 10px;
+  width: 20px;
+}
+
+.footer-logo {
+  max-width: 150px;
+  margin-bottom: 20px;
+}
+
+.footer-description {
+  font-size: 0.9em;
+  line-height: 1.6;
+}
+
+.copyright {
+  margin-top: 30px;
+  font-size: 0.9em;
+}
