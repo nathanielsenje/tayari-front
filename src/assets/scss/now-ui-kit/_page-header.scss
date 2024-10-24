@@ -1,0 +1,44 @@
+.page-header {
+  height: 100vh;
+  max-height: 1050px;
+  padding: 0;
+  color: $white;
+  position: relative;
+
+  .page-header-image {
+    position: absolute;
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  .content-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #FFFFFF;
+    padding: 0 15px;
+    width: 100%;
+    max-width: 880px;
+  }
+
+  .category,
+  .description {
+    color: rgba($white, .8);
+  }
+
+  &.page-header-small {
+    height: 60vh;
+    max-height: 440px;
+  }
+
+  &.page-header-mini {
+    height: 40vh;
+    max-height: 340px;
+  }
+}

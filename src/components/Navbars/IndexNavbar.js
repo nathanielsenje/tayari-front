@@ -71,12 +71,7 @@ function IndexNavbar() {
             </NavItem>
             <NavItem>
               <NavLink to="/articles" className="nav-link" onClick={() => setCollapseOpen(false)}>
-                Health Articles
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink to="/login-page" className="nav-link" onClick={() => setCollapseOpen(false)}>
-                Login
+                Articles
               </NavLink>
             </NavItem>
             <NavItem>

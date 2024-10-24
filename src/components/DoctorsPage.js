@@ -2,77 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Card, CardBody, CardTitle, CardSubtitle, CardText, Button, Input, Badge, InputGroup, InputGroupAddon, InputGroupText } from "reactstrap";
 import { Star, User, Calendar, Search } from 'react-feather';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import './DoctorsPage.css'; // Make sure to create this CSS file
-
-// Updated mock data for doctors with web image URLs, availability status, and profile URLs
-const doctors = [
-    {
-        id: 1,
-        name: "Dr. Sarah Johnson",
-        specialty: "Women's Health",
-        description: "Specializing in gynecology and reproductive health with 15 years of experience.",
-        imageUrl: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400&q=80",
-        rating: 4.8,
-        reviews: 120,
-        availability: "Available",
-        profileUrl: "/doctor/sarah-johnson"
-    },
-    {
-        id: 2,
-        name: "Dr. Michael Chen",
-        specialty: "Child Psychology",
-        description: "Expert in child development and behavioral issues with a focus on early intervention.",
-        imageUrl: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400&q=80",
-        rating: 4.6,
-        reviews: 95,
-        availability: "Busy",
-        profileUrl: "/doctor/michael-chen"
-    },
-    {
-        id: 3,
-        name: "Dr. Emily Rodriguez",
-        specialty: "Mental Health",
-        description: "Experienced psychiatrist specializing in anxiety, depression, and stress management.",
-        imageUrl: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400&q=80",
-        rating: 4.9,
-        reviews: 150,
-        availability: "Available",
-        profileUrl: "/doctor/emily-rodriguez"
-    },
-    {
-        id: 4,
-        name: "Dr. James Wilson",
-        specialty: "Cardiology",
-        description: "Renowned cardiologist with expertise in heart disease prevention and treatment.",
-        imageUrl: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400&q=80",
-        rating: 4.7,
-        reviews: 110,
-        availability: "Available",
-        profileUrl: "/doctor/james-wilson"
-    },
-    {
-        id: 5,
-        name: "Dr. Olivia Patel",
-        specialty: "Dermatology",
-        description: "Skilled dermatologist specializing in skin cancer detection and cosmetic procedures.",
-        imageUrl: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400&q=80",
-        rating: 4.8,
-        reviews: 130,
-        availability: "Busy",
-        profileUrl: "/doctor/olivia-patel"
-    },
-    {
-        id: 6,
-        name: "Dr. Robert Lee",
-        specialty: "Orthopedics",
-        description: "Experienced orthopedic surgeon specializing in sports injuries and joint replacements.",
-        imageUrl: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&h=400&q=80",
-        rating: 4.9,
-        reviews: 140,
-        availability: "Available",
-        profileUrl: "/doctor/robert-lee"
-    }
-];
 
 function DoctorCard({ doctor }) {
     const navigate = useNavigate();
@@ -84,11 +15,11 @@ function DoctorCard({ doctor }) {
     return (
         <Card className="doctor-card">
             <div className="doctor-card-image-container">
-                <img className="doctor-card-image" alt={doctor.name} src={doctor.imageUrl} />
+                <img className="doctor-card-image" alt={doctor.name} src={doctor.image_url} />
             </div>
             <CardBody>
                 <CardTitle tag="h4" className="card-title">{doctor.name}</CardTitle>
-                <CardSubtitle tag="h6" className="category text-info">{doctor.specialty}</CardSubtitle>
+                <CardSubtitle tag="h6" className="category text-info">{doctor.specialization}</CardSubtitle>
                 <div className="card-description">
                     <div className="star-rating">
                         {[...Array(5)].map((_, i) => (
@@ -101,8 +32,8 @@ function DoctorCard({ doctor }) {
                         ))}
                         <span className="ml-2">{doctor.rating} ({doctor.reviews} reviews)</span>
                     </div>
-                    <Badge color={doctor.availability === "Available" ? "success" : "warning"} pill>
-                        {doctor.availability}
+                    <Badge color={doctor.availability === "true" ? "success" : "warning"} pill>
+                        {doctor.availability === "true" ? "Available" : "Busy"}
                     </Badge>
                 </div>
                 <CardText>{doctor.description}</CardText>
@@ -131,17 +62,57 @@ function DoctorCard({ doctor }) {
 }
 
 function DoctorsPage() {
+    const [doctors, setDoctors] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
-    const [filteredDoctors, setFilteredDoctors] = useState(doctors);
+    const [filteredDoctors, setFilteredDoctors] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchDoctors = async () => {
+            try {
+                const response = await axios.get('http://localhost:1337/doctor');
+                setDoctors(response.data);
+                setFilteredDoctors(response.data);
+                setLoading(false);
+            } catch (err) {
+                setError('Failed to fetch doctors data');
+                setLoading(false);
+                console.error('Error fetching doctors:', err);
+            }
+        };
+
+        fetchDoctors();
+    }, []);
 
     useEffect(() => {
         const filtered = doctors.filter(
             (doctor) =>
                 doctor.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                doctor.specialty.toLowerCase().includes(searchTerm.toLowerCase())
+                doctor.specialization.toLowerCase().includes(searchTerm.toLowerCase())
         );
         setFilteredDoctors(filtered);
-    }, [searchTerm]);
+    }, [searchTerm, doctors]);
+
+    if (loading) {
+        return (
+            <div className="section">
+                <Container>
+                    <div className="text-center">Loading...</div>
+                </Container>
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className="section">
+                <Container>
+                    <div className="text-center text-danger">{error}</div>
+                </Container>
+            </div>
+        );
+    }
 
     return (
         <div className="section">
