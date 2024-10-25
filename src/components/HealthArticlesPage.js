@@ -34,7 +34,7 @@ function HealthArticlesPage() {
     useEffect(() => {
         const fetchArticles = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/article');
+                const response = await axios.get('https://weary-cadaver-66gj7w47rxwf54pv-1337.app.github.dev/article');
                 setArticles(response.data);
                 setLoading(false);
             } catch (err) {
