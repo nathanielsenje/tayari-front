@@ -71,7 +71,7 @@ function DoctorsPage() {
     useEffect(() => {
         const fetchDoctors = async () => {
             try {
-                const response = await axios.get('http://localhost:1337/doctor');
+                const response = await axios.get('https://weary-cadaver-66gj7w47rxwf54pv-1337.app.github.dev/doctor');
                 setDoctors(response.data);
                 setFilteredDoctors(response.data);
                 setLoading(false);
