@@ -17,7 +17,7 @@ function DoctorProfilePage() {
     useEffect(() => {
         const fetchDoctor = async () => {
             try {
-                const response = await axios.get(`http://localhost:1337/doctor/${id}`);
+                const response = await axios.get(`https://weary-cadaver-66gj7w47rxwf54pv-1337.app.github.dev/doctor/${id}`);
                 setDoctor(response.data);
                 setLoading(false);
             } catch (err) {
@@ -35,7 +35,7 @@ function DoctorProfilePage() {
     const handleBooking = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:1337/booking', {
+            const response = await axios.post('https://weary-cadaver-66gj7w47rxwf54pv-1337.app.github.dev/booking', {
                 doctorId: doctor.id,
                 date: appointmentDate,
                 time: appointmentTime
