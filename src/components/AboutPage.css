@@ -1,0 +1,462 @@
+.about-page section {
+    padding: 4rem 0;
+}
+
+.about-page h2 {
+    margin-bottom: 2rem;
+    font-family: 'Arvo', serif;
+    font-weight: 700;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.highlight {
+    position: relative;
+    display: inline-block;
+    padding: 0 5px;
+}
+
+.highlight::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    transition: height 0.3s ease;
+    z-index: -1;
+}
+
+.highlight:hover::before {
+    height: 100%;
+}
+
+.highlight.blue::before {
+    background-color: rgba(52, 152, 219, 0.3);
+}
+
+.highlight.green::before {
+    background-color: rgba(46, 204, 113, 0.3);
+}
+
+.highlight.orange::before {
+    background-color: rgba(230, 126, 34, 0.3);
+}
+
+.highlight.purple::before {
+    background-color: rgba(155, 89, 182, 0.3);
+}
+
+.highlight.red::before {
+    background-color: rgba(231, 76, 60, 0.3);
+}
+
+.highlight.yellow::before {
+    background-color: rgba(241, 196, 15, 0.3);
+}
+
+/* Updated Principles Section Styling */
+.principles-section .card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: none;
+    transition: all 0.3s ease;
+    background-color: #fff;
+    height: 100%;
+}
+
+.principles-section .card:hover {
+    transform: translateY(-5px);
+    border-color: #ddd;
+    background-color: #f8f9fa;
+}
+
+.principles-section .card-body {
+    padding: 2rem;
+}
+
+.principles-section .card h4 {
+    margin-top: 1rem;
+    font-family: 'Arvo', serif;
+    color: #333;
+}
+
+.principle-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 1rem;
+}
+
+.solution-section {
+    background-color: #fafafa;
+}
+
+.solution-card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    margin-bottom: 1.5rem;
+    box-shadow: none;
+    background-color: #fff;
+}
+
+.solution-card:hover {
+    transform: translateY(-5px);
+    border-color: #ddd;
+}
+
+.solution-content {
+    padding-right: 2rem;
+}
+
+.solution-content h4 {
+    font-family: 'Arvo', serif;
+    margin-bottom: 1.5rem;
+    color: #333;
+    font-size: 1.4rem;
+}
+
+.solution-content h4 .highlight {
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+.solution-content p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 0;
+    font-size: 1.1rem;
+}
+
+.solution-image-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.solution-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Increase spacing between cards */
+.solution-section .mb-5 {
+    margin-bottom: 3rem !important;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    padding: 4rem 0;
+}
+
+.carousel-inner-content {
+    padding: 2rem 1rem;
+}
+
+.carousel-inner-content .description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #2c2c2c;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.testimonial-image {
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.testimonial-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.blockquote-footer {
+    color: #888;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: left;
+}
+
+/* Carousel Controls */
+.carousel-control-prev,
+.carousel-control-next {
+    cursor: pointer;
+    width: 10%;
+    opacity: 1;
+    background: none;
+}
+
+.carousel-control-prev i,
+.carousel-control-next i {
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    transition: all 0.15s ease;
+}
+
+.carousel-control-prev:hover i,
+.carousel-control-next:hover i {
+    color: #2CA8FF;
+}
+
+@media (max-width: 768px) {
+    .carousel-inner-content {
+        padding: 1rem;
+    }
+
+    .testimonial-image {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 1rem;
+    }
+
+    .carousel-inner-content .description {
+        font-size: 1rem;
+    }
+
+    .blockquote-footer {
+        font-size: 0.85rem;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .solution-card {
+        margin-bottom: 2rem;
+    }
+
+    .testimonial-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .solution-content {
+        padding-right: 0;
+        padding-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    .solution-image-wrapper {
+        width: 120px;
+        padding-bottom: 120px;
+        margin: 0 auto;
+    }
+}
+
+/* ... rest of the CSS remains the same ... */
+
+/* Updated Testimonials Section */
+.now-ui-carousel {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.carousel-testimonials {
+    background-color: transparent;
+}
+
+.carousel-inner-content {
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+.testimonial-image {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 2rem;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.3);
+}
+
+.testimonial-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.testimonial-quote {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: #2c2c2c;
+    margin: 2rem auto;
+    max-width: 600px;
+    font-style: italic;
+}
+
+.testimonial-author {
+    display: block;
+    font-size: 1.1rem;
+    color: #888;
+    margin-top: 1rem;
+}
+
+/* Carousel Controls */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 7%;
+    opacity: 1;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #2CA8FF;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-next:hover .carousel-control-next-icon {
+    transform: scale(1.1);
+}
+
+/* Updated Principles Section */
+.principles-section {
+    background-color: #fafafa;
+}
+
+.principle-item {
+    text-align: center;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+.principle-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.049);
+}
+
+.principle-icon {
+    width: 96px;
+    /* Increased from 64px */
+    height: 96px;
+    /* Increased from 64px */
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.principle-item:hover .principle-icon {
+    transform: scale(1.1);
+}
+
+.principle-item h4 {
+    font-family: 'Arvo', serif;
+    color: #333;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .testimonial-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .testimonial-quote {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+
+    .principle-icon {
+        width: 72px;
+        height: 72px;
+    }
+}
+
+/* Contact Section */
+.contact-section {
+    background-color: #fff;
+    padding: 6rem 0;
+}
+
+.contact-illustration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.contact-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.contact-image:hover {
+    transform: translateY(-10px);
+}
+
+.contact-form {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.contact-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.contact-form label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.contact-form .form-control {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.contact-form .form-control:focus {
+    border-color: #2CA8FF;
+    box-shadow: 0 0 0 0.2rem rgba(44, 168, 255, 0.25);
+}
+
+.contact-form textarea {
+    min-height: 120px;
+}
+
+.contact-form .btn {
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+    .contact-illustration {
+        margin-bottom: 3rem;
+    }
+    
+    .contact-image {
+        max-width: 300px;
+    }
+    
+    .contact-form {
+        padding: 1.5rem;
+    }
+}

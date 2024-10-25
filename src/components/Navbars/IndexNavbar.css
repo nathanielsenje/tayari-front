@@ -137,4 +137,15 @@
     .navbar-toggler:focus {
         outline: none;
     }
+
+    .navbar-collapse {
+        background-color: #000000;
+        padding: 10px;
+        border-radius: 0 0 5px 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-toggler-bar {
+        background: #ffffff !important;
+    }
 }

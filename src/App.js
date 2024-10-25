@@ -19,6 +19,7 @@ import DoctorProfilePage from "components/DoctorProfilePage.js";
 import BookingPage from "components/BookingPage.js";
 import UserProfilePage from "components/UserProfilePage.js";
 import Article from "components/Article.js";
+import AboutPage from "./components/AboutPage";
 
 // images
 import homeBackground from "assets/img/home-bg.jpg";
@@ -46,7 +47,7 @@ function App() {
 
     const getHeaderContent = () => {
         const path = location.pathname;
-        
+
         if (path === '/') {
             return {
                 title: "Welcome to HiDoc",
@@ -57,7 +58,7 @@ function App() {
                 backgroundImage: homeBackground
             };
         }
-        
+
         if (path === '/doctors') {
             return {
                 title: "Our Doctors",
@@ -65,7 +66,7 @@ function App() {
                 backgroundImage: doctorsBackground
             };
         }
-        
+
         if (path.startsWith('/doctor/')) {
             return {
                 title: "Doctor Profile",
@@ -73,7 +74,7 @@ function App() {
                 backgroundImage: doctorProfileBackground
             };
         }
-        
+
         if (path === '/forums') {
             return {
                 title: "Community Forums",
@@ -81,7 +82,7 @@ function App() {
                 backgroundImage: forumsBackground
             };
         }
-        
+
         if (path === '/articles') {
             return {
                 title: "Health Articles",
@@ -89,12 +90,12 @@ function App() {
                 backgroundImage: articlesBackground
             };
         }
-        
+
         if (path.startsWith('/article/')) {
             // We'll update this in the Article component
             return null;
         }
-        
+
         if (path === '/profile') {
             return {
                 title: "User Profile",
@@ -102,7 +103,7 @@ function App() {
                 backgroundImage: userProfileBackground
             };
         }
-        
+
         return {
             title: "HiDoc",
             subtitle: "Your Health Partner",
@@ -126,6 +127,7 @@ function App() {
                     <Route path="/articles" element={<HealthArticlesPage />} />
                     <Route path="/article/:id" element={<Article />} />
                     <Route path="/profile" element={<UserProfilePage />} />
+                    <Route path="/about" element={<AboutPage />} />
                     <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>
                 <DarkFooter />

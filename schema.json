@@ -1,0 +1,62 @@
+{
+  "doctors": {
+    "id": "integer",
+    "name": "string",
+    "specialty": "string",
+    "description": "text",
+    "imageUrl": "string",
+    "rating": "float",
+    "reviews": "integer",
+    "availability": "string",
+    "education": "text",
+    "experience": "string",
+    "location": "string",
+    "phone": "string",
+    "email": "string",
+    "workingHours": "string"
+  },
+  "bookings": {
+    "id": "integer",
+    "doctorId": "integer",
+    "userId": "integer",
+    "date": "date",
+    "time": "time",
+    "status": "string"
+  },
+  "users": {
+    "id": "integer",
+    "name": "string",
+    "email": "string",
+    "password": "string",
+    "joinDate": "date",
+    "bio": "text",
+    "avatarUrl": "string"
+  },
+  "forumPosts": {
+    "id": "integer",
+    "title": "string",
+    "content": "text",
+    "authorId": "integer",
+    "category": "string",
+    "createdAt": "datetime",
+    "updatedAt": "datetime"
+  },
+  "forumReplies": {
+    "id": "integer",
+    "postId": "integer",
+    "authorId": "integer",
+    "content": "text",
+    "createdAt": "datetime",
+    "updatedAt": "datetime"
+  },
+  "articles": {
+    "id": "integer",
+    "title": "string",
+    "content": "text",
+    "authorId": "integer",
+    "category": "string",
+    "imageUrl": "string",
+    "createdAt": "datetime",
+    "updatedAt": "datetime"
+  }
+}

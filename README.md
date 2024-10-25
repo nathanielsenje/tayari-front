@@ -31,7 +31,7 @@ Before you begin, ensure you have met the following requirements:
 To get HiDoc running locally, follow these steps:
 
 1. Clone the repository:   ```
-   git clone https://github.com/nathanielsenje/tayari-front.git hidoc
+   git clone https://github.com/yourusername/hidoc.git
    cd hidoc   ```
 
 2. Install dependencies:   ```
@@ -87,9 +87,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Nathaniel Senje - nathaniel.senje@proton.me
+Your Name - your.email@example.com
 
-Project Link: [https://github.com/nathanielsenje/tayari-front.git](https://github.com/nathanielsenje/tayari-front.git)
+Project Link: [https://github.com/yourusername/hidoc](https://github.com/yourusername/hidoc)
 
 ## Acknowledgements
 
