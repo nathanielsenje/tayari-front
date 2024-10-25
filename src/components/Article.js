@@ -13,7 +13,7 @@ function Article() {
     useEffect(() => {
         const fetchArticle = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/article/${id}`);
+                const response = await axios.get(`https://weary-cadaver-66gj7w47rxwf54pv-1337.app.github.dev/article/${id}`);
                 setArticle(response.data);
                 setLoading(false);
             } catch (err) {
